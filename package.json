@@ -1,0 +1,7 @@
+{
+  "name": "honest-portal-mvp",
+  "private": true,
+  "type": "module",
+  "scripts": {"dev": "node scripts/dev.mjs", "test": "node scripts/test.mjs", "package": "node scripts/package.mjs"},
+  "devDependencies": {"@wp-playground/cli": "3.1.42"}
+}
