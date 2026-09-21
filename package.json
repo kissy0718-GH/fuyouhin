@@ -1,0 +1,11 @@
+{
+  "name": "cleanup-portal",
+  "private": true,
+  "scripts": {
+    "preview": "node scripts/playground.mjs",
+    "test": "node scripts/playground.mjs --test"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "3.1.53"
+  }
+}
