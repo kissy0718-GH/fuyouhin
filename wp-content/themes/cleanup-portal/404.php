@@ -1,0 +1,1 @@
+<?php get_header(); ?><main id="main" class="reading"><p class="eyebrow">404</p><h1>ページが見つかりませんでした。</h1><p>URLが変更されたか、情報の確認のため公開を停止している可能性があります。</p><p><a class="button" href="<?php echo esc_url( home_url( '/' ) ); ?>">ホームへ戻る</a></p><?php get_search_form(); ?></main><?php get_footer(); ?>

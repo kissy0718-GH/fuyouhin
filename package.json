@@ -1,7 +1,11 @@
 {
-  "name": "honest-portal-mvp",
+  "name": "cleanup-portal",
   "private": true,
-  "type": "module",
-  "scripts": {"dev": "node scripts/dev.mjs", "test": "node scripts/test.mjs", "package": "node scripts/package.mjs"},
-  "devDependencies": {"@wp-playground/cli": "3.1.42"}
+  "scripts": {
+    "preview": "node scripts/playground.mjs",
+    "test": "node scripts/playground.mjs --test"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "3.1.53"
+  }
 }

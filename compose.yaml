@@ -1,0 +1,36 @@
+# Optional native PHP + MariaDB environment. Docker Desktop is required.
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: cleanup
+      MARIADB_USER: cleanup
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Run scripts/setup-env.ps1 first}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Run scripts/setup-env.ps1 first}
+    volumes:
+      - cleanup_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  wordpress:
+    image: wordpress:7.1-php8.3-apache
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: cleanup
+      WORDPRESS_DB_USER: cleanup
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?Run scripts/setup-env.ps1 first}
+      WORDPRESS_CONFIG_EXTRA: "define('WP_ENVIRONMENT_TYPE', 'local');"
+    volumes:
+      - cleanup_wordpress:/var/www/html
+      - ./wp-content/plugins/cleanup-core:/var/www/html/wp-content/plugins/cleanup-core:ro
+      - ./wp-content/themes/cleanup-portal:/var/www/html/wp-content/themes/cleanup-portal:ro
+volumes:
+  cleanup_db:
+  cleanup_wordpress:
