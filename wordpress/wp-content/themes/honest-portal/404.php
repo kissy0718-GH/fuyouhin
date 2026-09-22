@@ -1,1 +1,0 @@
-<?php get_header();honest_breadcrumb('ページが見つかりません'); ?><div class="empty-state"><p class="eyebrow" style="justify-content:center">404 / NOT FOUND</p><h1>お探しのページが見つかりません。</h1><p>URLが変更されたか、まだ公開されていないページです。</p><a class="button" href="<?php echo honest_url('/'); ?>">ホームへ戻る　→</a></div><?php get_footer(); ?>

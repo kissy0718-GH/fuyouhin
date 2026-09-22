@@ -1,1 +1,0 @@
-<?php get_header();honest_breadcrumb('読みもの'); ?><div class="page-heading"><h1>暮らしの読みもの</h1></div><?php if(have_posts()):while(have_posts()):the_post();honest_article_card(get_post());endwhile;the_posts_pagination();else: ?><div class="empty-state"><h2>掲載記事はまだありません。</h2><a href="<?php echo honest_url('/'); ?>">ホームへ戻る →</a></div><?php endif;get_footer(); ?>
